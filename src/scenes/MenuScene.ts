@@ -23,6 +23,35 @@ export class MenuScene extends Phaser.Scene {
       this.add.circle(x, y, r, 0xFFFFFF, alpha);
     }
 
+    // ── Floating Math Symbols ─────────────────────────────────────────
+    const symbols = ['+', '-', '×', '÷', '1', '2', '3', '7', '?', '='];
+    for (let i = 0; i < 15; i++) {
+      const sym = Phaser.Utils.Array.GetRandom(symbols);
+      const x = Phaser.Math.Between(0, width);
+      const y = Phaser.Math.Between(0, height);
+      const size = Phaser.Math.Between(16, 40);
+      const alpha = Phaser.Math.FloatBetween(0.1, 0.4);
+
+      const text = this.add.text(x, y, sym, {
+        fontSize: `${size}px`,
+        color: '#FFFFFF',
+        fontStyle: 'bold',
+      }).setOrigin(0.5).setAlpha(alpha).setDepth(0);
+
+      this.tweens.add({
+        targets: text,
+        y: y - Phaser.Math.Between(50, 150),
+        x: x + Phaser.Math.Between(-30, 30),
+        angle: Phaser.Math.Between(-180, 180),
+        alpha: { start: alpha, to: 0 },
+        duration: Phaser.Math.Between(4000, 8000),
+        ease: 'Sine.easeInOut',
+        yoyo: true,
+        repeat: -1,
+        delay: Phaser.Math.Between(0, 3000),
+      });
+    }
+
     // ── Title ───────────────────────────────────────────────────────
     this.add.text(width / 2, height * 0.2, '🔢 LOMPAT ANGKA', {
       fontSize: Math.floor(width * 0.08) + 'px',
