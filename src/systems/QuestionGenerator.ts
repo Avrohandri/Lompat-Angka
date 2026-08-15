@@ -31,7 +31,7 @@ function pickRandom<T>(arr: T[]): T {
 
 // ─── Distraktor mendidik ─────────────────────────────────────────────────────
 
-function generateDistractors(correct: number, topic: Topic, count: number, closeness: number): number[] {
+function generateDistractors(correct: number, _topic: Topic, count: number, closeness: number): number[] {
   const distractors = new Set<number>();
   const spread = Math.max(1, Math.ceil(closeness * 1.5)); // makin tinggi closeness, makin dekat
 
@@ -103,7 +103,6 @@ function makeDivision(params: DifficultyParams): { prompt: string; correct: numb
 
 function makeMixed(params: DifficultyParams): { prompt: string; correct: number } {
   // 2 langkah: (a op b) op c
-  const maxFactor = Math.min(12, Math.floor(params.numberRange[1] / 2));
   const ops = ['+', '-', '×', '÷'];
   const op1 = pickRandom(ops.slice(0, 2)); // +/-
   const op2 = pickRandom(ops.slice(0, 2));

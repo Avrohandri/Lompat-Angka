@@ -15,8 +15,10 @@ export class InputManager {
   private prevUp = false;
   private prevDown = false;
   private prevJump = false;
+  private scene: Phaser.Scene;
 
-  constructor(private scene: Phaser.Scene) {
+  constructor(scene: Phaser.Scene) {
+    this.scene = scene;
     this.setupKeyboard();
     this.setupTouch();
   }
@@ -37,9 +39,8 @@ export class InputManager {
 
   private setupTouch(): void {
     this.scene.input.on('pointerdown', (p: Phaser.Input.Pointer) => {
-      const { width, height } = this.scene.scale;
+      const { height } = this.scene.scale;
       const relY = p.y / height;
-      const relX = p.x / width;
 
       // Tap kiri bawah = jump, kanan bawah = jump juga
       // Tap atas layar = laneUp, bawah = laneDown

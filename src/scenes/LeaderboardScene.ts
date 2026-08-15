@@ -15,7 +15,6 @@ export class LeaderboardScene extends Phaser.Scene {
   constructor() { super({ key: 'LeaderboardScene' }); }
 
   create(): void {
-    const { width, height } = this.scale;
     const save = SaveManager.load();
     this.selectedGrade = save?.grade ?? 1;
 
@@ -100,7 +99,7 @@ export class LeaderboardScene extends Phaser.Scene {
 
       entries.slice(0, 8).forEach((e, idx) => {
         const rowY = height * 0.33 + idx * (height * 0.07);
-        const rowBg = this.add.rectangle(width / 2, rowY, width * 0.9, height * 0.062,
+        this.add.rectangle(width / 2, rowY, width * 0.9, height * 0.062,
           idx % 2 === 0 ? 0x1B2838 : 0x263238, 1);
 
         const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : String(idx + 1);

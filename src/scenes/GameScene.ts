@@ -22,7 +22,6 @@ export class GameScene extends Phaser.Scene {
   // ── config ──────────────────────────────────────────────────────────────────
   private grade = 3;
   private difficulty = 3;
-  private username = 'Anonim';
 
   // ── physics / objects ────────────────────────────────────────────────────────
   private player!: Phaser.Physics.Arcade.Image;
@@ -58,7 +57,6 @@ export class GameScene extends Phaser.Scene {
   init(data: { grade: number; difficulty: number; username: string }): void {
     this.grade      = data.grade ?? 3;
     this.difficulty = data.difficulty ?? 3;
-    this.username   = data.username ?? 'Anonim';
   }
 
   create(): void {
@@ -229,7 +227,7 @@ export class GameScene extends Phaser.Scene {
 
     const spike = this.physics.add.image(spawnX, spawnY, 'spike') as Phaser.Physics.Arcade.Image;
     spike.setImmovable(true);
-    spike.body!.allowGravity = false;
+    (spike.body as Phaser.Physics.Arcade.Body).allowGravity = false;
     spike.setData('hit', false);
     this.spikeGroup.add(spike);
   }
@@ -327,8 +325,6 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onCorrectGate(group: GateGroup): void {
-    const { width } = this.scale;
-
     const gained = this.scoreSystem.onCorrect(0.8);
     this.updateHUD();
 
@@ -353,7 +349,7 @@ export class GameScene extends Phaser.Scene {
       const cx = group.gateWorldX + i * 70;
       const cy = this.scale.height - GROUND_H - 50;
       const coin = this.physics.add.image(cx, cy, 'coin') as Phaser.Physics.Arcade.Image;
-      coin.body!.allowGravity = false;
+      (coin.body as Phaser.Physics.Arcade.Body).allowGravity = false;
       coin.setData('collected', false);
       this.coinGroup.add(coin);
     }

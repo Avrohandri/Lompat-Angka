@@ -9,7 +9,7 @@ export class BootScene extends Phaser.Scene {
   }
 
   private generateAssets(): void {
-    const gfx = this.make.graphics({ x: 0, y: 0, add: false });
+    const gfx = this.make.graphics({ x: 0, y: 0 });
 
     // ── Player (kotak biru) ──────────────────────────────────────────
     gfx.clear();

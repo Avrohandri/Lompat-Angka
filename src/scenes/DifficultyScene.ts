@@ -31,7 +31,6 @@ export class DifficultyScene extends Phaser.Scene {
     const cardW = Math.min(160, (width - 60) / 3);
     const cardH = cardW * 1.4;
     const cols = width < 600 ? 2 : 3;
-    const rows = Math.ceil(difficulties.length / cols);
 
     const totalW = cols * cardW + (cols - 1) * 16;
     const startX = (width - totalW) / 2 + cardW / 2;
