@@ -27,17 +27,15 @@ export class ResultScene extends Phaser.Scene {
     const diff     = this.data.get('difficulty') as number;
 
     // BG
-    const bg = this.add.graphics();
-    bg.fillGradientStyle(0x0D1B2A, 0x0D1B2A, 0x1B3A4B, 0x1B3A4B, 1);
-    bg.fillRect(0, 0, width, height);
+    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     // Title
-    this.add.text(width / 2, height * 0.1, '📊 Hasil', {
+    this.add.text(width / 2, height * 0.1, 'HASIL', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.07) + 'px',
-      color: '#FFD600',
-      fontStyle: 'bold',
-      stroke: '#000',
-      strokeThickness: 5,
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 8,
     }).setOrigin(0.5);
 
     // Stars
@@ -47,47 +45,55 @@ export class ResultScene extends Phaser.Scene {
     }).setOrigin(0.5);
 
     // Score
-    this.add.text(width / 2, height * 0.34, `Skor: ${score}`, {
+    this.add.text(width / 2, height * 0.34, `SKOR: ${score}`, {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.06) + 'px',
-      color: '#FFFFFF',
-      fontStyle: 'bold',
+      color: '#FFD600',
+      stroke: '#000000',
+      strokeThickness: 6,
     }).setOrigin(0.5);
 
     // Stats
     const total    = correct + wrong;
     const accuracy = total === 0 ? 100 : Math.round((correct / total) * 100);
     const stats = [
-      `✅ Benar: ${correct}`,
-      `❌ Salah: ${wrong}`,
-      `🎯 Akurasi: ${accuracy}%`,
-      `🔥 Combo tertinggi: x${maxCombo}`,
+      `BENAR: ${correct}`,
+      `SALAH: ${wrong}`,
+      `AKURASI: ${accuracy}%`,
+      `COMBO TERTINGGI: x${maxCombo}`,
     ];
     stats.forEach((s, i) => {
       this.add.text(width / 2, height * 0.46 + i * (height * 0.07), s, {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(width * 0.032) + 'px',
-        color: '#B0BEC5',
+        color: '#FFFFFF',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5);
     });
 
     // High score display
     const save = SaveManager.load();
     if (save) {
-      this.add.text(width / 2, height * 0.74, `🏆 Skor tertinggi: ${save.highScore}`, {
+      this.add.text(width / 2, height * 0.74, `SKOR TERTINGGI: ${save.highScore}`, {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(width * 0.028) + 'px',
         color: '#FFD600',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5);
     }
 
     // Buttons
     const btnY = height * 0.86;
     const btnSpacing = Math.min(180, width * 0.32);
-    this.makeButton(width / 2 - btnSpacing, btnY, '🔄 Ulangi', 0x1565C0, () => {
+    this.makeButton(width / 2 - btnSpacing, btnY, 'ULANGI', 0x1565C0, () => {
       this.scene.start('GameScene', {
         grade, difficulty: diff,
         username: save?.username ?? 'Anonim',
       });
     });
-    this.makeButton(width / 2 + btnSpacing, btnY, '🏠 Menu', 0x37474F, () => {
+    this.makeButton(width / 2 + btnSpacing, btnY, 'MENU', 0x37474F, () => {
       this.scene.start('MenuScene');
     });
 
@@ -117,9 +123,9 @@ export class ResultScene extends Phaser.Scene {
       .setStrokeStyle(2, 0xFFFFFF, 0.4)
       .setInteractive({ useHandCursor: true });
     const txt = this.add.text(x, y, label, {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#FFF',
-      fontStyle: 'bold',
+      color: '#FFFFFF',
     }).setOrigin(0.5);
 
     bg.on('pointerover', () => bg.setAlpha(0.8));

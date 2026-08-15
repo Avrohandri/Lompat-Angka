@@ -9,19 +9,18 @@ export class MenuScene extends Phaser.Scene {
     const { width, height } = this.scale;
     const save = SaveManager.load();
 
-    // ── Background gradient ─────────────────────────────────────────
-    const bg = this.add.graphics();
-    bg.fillGradientStyle(0x0D1B2A, 0x0D1B2A, 0x1B4F72, 0x1B4F72, 1);
-    bg.fillRect(0, 0, width, height);
+    // ── Background (Sky Blue Flat) ─────────────────────────────────────────
+    this.cameras.main.setBackgroundColor('#5C94FC');
 
-    // ── Stars parallax deco ─────────────────────────────────────────
-    for (let i = 0; i < 60; i++) {
+    // ── Simple Blocky Clouds ─────────────────────────────────────────
+    for (let i = 0; i < 5; i++) {
       const x = Phaser.Math.Between(0, width);
-      const y = Phaser.Math.Between(0, height * 0.7);
-      const r = Phaser.Math.FloatBetween(1, 3);
-      const alpha = Phaser.Math.FloatBetween(0.3, 1);
-      this.add.circle(x, y, r, 0xFFFFFF, alpha);
+      const y = Phaser.Math.Between(0, height * 0.4);
+      const size = Phaser.Math.Between(40, 100);
+      this.add.rectangle(x, y, size, size * 0.6, 0xFFFFFF, 0.8).setDepth(0);
     }
+
+    // Menghapus efek bintang parallax karena tema sekarang siang hari
 
     // ── Floating Math Symbols ─────────────────────────────────────────
     const symbols = ['+', '-', '×', '÷', '1', '2', '3', '7', '?', '='];
@@ -53,18 +52,21 @@ export class MenuScene extends Phaser.Scene {
     }
 
     // ── Title ───────────────────────────────────────────────────────
-    this.add.text(width / 2, height * 0.2, '🔢 LOMPAT ANGKA', {
+    this.add.text(width / 2, height * 0.2, 'LOMPAT ANGKA', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.08) + 'px',
-      color: '#FFD600',
-      fontStyle: 'bold',
+      color: '#FFFFFF',
       stroke: '#000000',
-      strokeThickness: 6,
-      shadow: { blur: 20, color: '#FFD600', fill: true },
+      strokeThickness: 8,
+      shadow: { blur: 0, color: '#000000', offsetX: 4, offsetY: 4, fill: true },
     }).setOrigin(0.5);
 
-    this.add.text(width / 2, height * 0.3, 'Lari • Hitung • Menang!', {
+    this.add.text(width / 2, height * 0.3, 'LARI • HITUNG • MENANG', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.035) + 'px',
-      color: '#B0BEC5',
+      color: '#FFD600',
+      stroke: '#000000',
+      strokeThickness: 4,
     }).setOrigin(0.5);
 
     // ── Tombol Mulai ─────────────────────────────────────────────────
@@ -80,9 +82,12 @@ export class MenuScene extends Phaser.Scene {
     // ── Ubah profil ─────────────────────────────────────────────────
     if (save) {
       const gradeLabel = GRADE_CONFIG[save.grade]?.label ?? `Kelas ${save.grade}`;
-      this.add.text(width / 2, height * 0.42, `👤 ${save.username}  •  ${gradeLabel}`, {
+      this.add.text(width / 2, height * 0.42, `👤 ${save.username.toUpperCase()} • ${gradeLabel.toUpperCase()}`, {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(width * 0.028) + 'px',
-        color: '#90CAF9',
+        color: '#FFFFFF',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5);
 
       this.makeButton(width / 2, btnY + 80, '✏️  Ganti Profil', 0x37474F, 0x546E7A, () => {
@@ -116,10 +121,10 @@ export class MenuScene extends Phaser.Scene {
       .setStrokeStyle(2, 0xFFFFFF, 0.3)
       .setInteractive({ useHandCursor: true });
 
-    const txt = this.add.text(x, y, label, {
+    const txt = this.add.text(x, y, label.toUpperCase(), {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.03) + 'px',
       color: '#FFFFFF',
-      fontStyle: 'bold',
     }).setOrigin(0.5);
 
     bg.on('pointerover', () => bg.setFillStyle(colorHover));

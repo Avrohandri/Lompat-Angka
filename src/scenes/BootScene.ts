@@ -11,31 +11,32 @@ export class BootScene extends Phaser.Scene {
   private generateAssets(): void {
     const gfx = this.make.graphics({ x: 0, y: 0 });
 
-    // ── Player (kotak biru) ──────────────────────────────────────────
+    // ── Player (Slime hijau kotak) ───────────────────────────────────
     gfx.clear();
-    gfx.fillStyle(0x4FC3F7, 1);
-    gfx.fillRoundedRect(0, 0, 48, 48, 8);
-    gfx.fillStyle(0xFFFFFF, 0.9);
-    gfx.fillCircle(14, 16, 7);
-    gfx.fillCircle(34, 16, 7);
-    gfx.fillStyle(0x0D47A1, 1);
-    gfx.fillCircle(14, 16, 4);
-    gfx.fillCircle(34, 16, 4);
+    gfx.fillStyle(0x8CC63F, 1); // Hijau terang
+    gfx.fillRect(0, 0, 48, 48); // Kotak penuh
+    gfx.fillStyle(0x000000, 1); // Mata hitam
+    gfx.fillRect(10, 16, 8, 8);
+    gfx.fillRect(30, 16, 8, 8);
+    gfx.fillRect(20, 30, 8, 4); // Mulut kecil (opsional)
     gfx.generateTexture('player', 48, 48);
 
-    // ── Ground tile ─────────────────────────────────────────────────
+    // ── Ground tile (Coklat dengan atas hijau) ──────────────────────
     gfx.clear();
-    gfx.fillStyle(0x558B2F, 1);
+    gfx.fillStyle(0x5D4037, 1); // Coklat tanah
     gfx.fillRect(0, 0, 64, 32);
-    gfx.fillStyle(0x33691E, 1);
+    gfx.fillStyle(0x8CC63F, 1); // Hijau rumput
     gfx.fillRect(0, 0, 64, 8);
     gfx.generateTexture('ground', 64, 32);
 
-    // ── Obstacle (duri merah) ────────────────────────────────────────
+    // ── Obstacle (Balok hitam simpel) ──────────────────────────────
     gfx.clear();
-    gfx.fillStyle(0xE53935, 1);
-    gfx.fillTriangle(16, 0, 0, 40, 32, 40);
-    gfx.generateTexture('spike', 32, 40);
+    gfx.fillStyle(0x212121, 1); // Hitam gelap
+    gfx.fillRect(0, 0, 40, 40); // Ukuran kotak
+    gfx.fillStyle(0x424242, 1); // Aksen garis abu
+    gfx.fillRect(10, 10, 20, 4);
+    gfx.fillRect(5, 25, 30, 4);
+    gfx.generateTexture('spike', 40, 40);
 
     // ── Gate terbuka (hijau) ─────────────────────────────────────────
     gfx.clear();

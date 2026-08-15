@@ -44,17 +44,15 @@ export class LeaderboardScene extends Phaser.Scene {
     this.children.removeAll(true);
 
     // BG
-    const bg = this.add.graphics();
-    bg.fillGradientStyle(0x0D1B2A, 0x0D1B2A, 0x1B2838, 0x1B2838, 1);
-    bg.fillRect(0, 0, width, height);
+    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     // Title
-    this.add.text(width / 2, height * 0.08, '🏆 Leaderboard', {
+    this.add.text(width / 2, height * 0.08, 'LEADERBOARD', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.055) + 'px',
-      color: '#FFD600',
-      fontStyle: 'bold',
-      stroke: '#000',
-      strokeThickness: 4,
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 6,
     }).setOrigin(0.5);
 
     // Grade tabs
@@ -66,10 +64,12 @@ export class LeaderboardScene extends Phaser.Scene {
         isSelected ? 0x1565C0 : 0x37474F, 1)
         .setStrokeStyle(2, isSelected ? 0x42A5F5 : 0x546E7A, 1)
         .setInteractive({ useHandCursor: true });
-      this.add.text(tabX, tabY, `Kls ${g}`, {
+      this.add.text(tabX, tabY, `KLS ${g}`, {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(width * 0.022) + 'px',
-        color: isSelected ? '#FFFFFF' : '#90A4AE',
-        fontStyle: isSelected ? 'bold' : 'normal',
+        color: isSelected ? '#FFD600' : '#FFFFFF',
+        stroke: '#000000',
+        strokeThickness: 3,
       }).setOrigin(0.5);
 
       tab.on('pointerdown', () => {
@@ -81,19 +81,24 @@ export class LeaderboardScene extends Phaser.Scene {
     // Entries
     const entries = this.getEntries().filter(e => e.grade === this.selectedGrade);
     if (entries.length === 0) {
-      this.add.text(width / 2, height * 0.55, 'Belum ada skor untuk kelas ini.\nMain dulu!', {
+      this.add.text(width / 2, height * 0.55, 'BELUM ADA SKOR.\nMAIN DULU!', {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(width * 0.03) + 'px',
-        color: '#546E7A',
+        color: '#FFFFFF',
         align: 'center',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5);
     } else {
       const colHeaders = ['#', 'Nama', 'Diff', 'Skor', '⭐'];
       const colX = [0.08, 0.25, 0.5, 0.68, 0.88].map(f => f * width);
       colHeaders.forEach((h, i) => {
-        this.add.text(colX[i], height * 0.27, h, {
+        this.add.text(colX[i], height * 0.27, h.toUpperCase(), {
+          fontFamily: '"Impact", "Arial Black", sans-serif',
           fontSize: Math.floor(width * 0.026) + 'px',
-          color: '#90CAF9',
-          fontStyle: 'bold',
+          color: '#FFD600',
+          stroke: '#000000',
+          strokeThickness: 3,
         }).setOrigin(0.5);
       });
 
@@ -105,19 +110,25 @@ export class LeaderboardScene extends Phaser.Scene {
         const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : String(idx + 1);
         const vals = [medal, e.username.slice(0, 10), String(e.difficulty), String(e.score), '⭐'.repeat(e.stars)];
         vals.forEach((v, i) => {
-          this.add.text(colX[i], rowY, v, {
+          this.add.text(colX[i], rowY, v.toUpperCase(), {
+            fontFamily: '"Impact", "Arial Black", sans-serif',
             fontSize: Math.floor(width * 0.025) + 'px',
-            color: idx < 3 ? '#FFD600' : '#ECEFF1',
+            color: idx < 3 ? '#FFD600' : '#FFFFFF',
+            stroke: '#000000',
+            strokeThickness: 3,
           }).setOrigin(0.5);
         });
       });
     }
 
     // Back
-    const back = this.add.text(40, 40, '← Kembali', {
+    const backTxt = this.add.text(width / 2, height * 0.92, '⬅ KEMBALI KE MENU', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#90CAF9',
-    }).setInteractive({ useHandCursor: true });
-    back.on('pointerdown', () => this.scene.start('MenuScene'));
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 4,
+    }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+    backTxt.on('pointerdown', () => this.scene.start('MenuScene'));
   }
 }

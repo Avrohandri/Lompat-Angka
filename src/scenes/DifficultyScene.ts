@@ -8,16 +8,14 @@ export class DifficultyScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.scale;
 
-    const bg = this.add.graphics();
-    bg.fillGradientStyle(0x0D1B2A, 0x0D1B2A, 0x1B2838, 0x1B2838, 1);
-    bg.fillRect(0, 0, width, height);
+    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
-    this.add.text(width / 2, height * 0.1, 'Pilih Tingkat Kesulitan', {
+    this.add.text(width / 2, height * 0.15, 'PILIH KESULITAN', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.05) + 'px',
-      color: '#FFD600',
-      fontStyle: 'bold',
-      stroke: '#000',
-      strokeThickness: 4,
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 6,
     }).setOrigin(0.5);
 
     const difficulties = [
@@ -52,20 +50,20 @@ export class DifficultyScene extends Phaser.Scene {
         fontSize: Math.floor(cardW * 0.3) + 'px',
       }).setOrigin(0.5);
 
-      this.add.text(cx, cy, d.label, {
-        fontSize: Math.floor(cardW * 0.35) + 'px',
-        color: '#FFFFFF',
-        fontStyle: 'bold',
-      }).setOrigin(0.5);
-
-      this.add.text(cx, cy + cardH * 0.32, d.title, {
+      this.add.text(cx, cy, d.title.toUpperCase(), {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(cardW * 0.14) + 'px',
-        color: '#ECEFF1',
+        color: '#FFFFFF',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5);
 
-      this.add.text(cx, cy + cardH * 0.44, theme.label, {
-        fontSize: Math.floor(cardW * 0.11) + 'px',
-        color: '#90A4AE',
+      this.add.text(cx, cy + cardH * 0.3, theme.label.toUpperCase(), {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontSize: Math.floor(cardW * 0.1) + 'px',
+        color: '#FFD600',
+        stroke: '#000000',
+        strokeThickness: 3,
       }).setOrigin(0.5);
 
       card.on('pointerover', () => {
@@ -85,10 +83,13 @@ export class DifficultyScene extends Phaser.Scene {
     });
 
     // Tombol kembali
-    const backTxt = this.add.text(40, 40, '← Kembali', {
+    const backTxt = this.add.text(width / 2, height * 0.9, '⬅ KEMBALI KE MENU', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#90CAF9',
-    }).setInteractive({ useHandCursor: true });
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 4,
+    }).setOrigin(0.5).setInteractive({ useHandCursor: true });
     backTxt.on('pointerdown', () => this.scene.start('MenuScene'));
   }
 }

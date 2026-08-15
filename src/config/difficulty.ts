@@ -19,11 +19,11 @@ export const DIFFICULTY_CONFIG: Record<number, DifficultyParams> = {
   5: { speed: 520, runwayMs: 1000, lives: 1, gateCount: 4, closeness: 5, numberRange: [5, 100], steps: 2, obstacleRate: 0.9 },
 };
 
-// Background theme per difficulty
-export const DIFFICULTY_THEME: Record<number, { label: string; bgColor: number; groundColor: number; accentColor: number }> = {
-  1: { label: 'Taman Cerah',    bgColor: 0x87CEEB, groundColor: 0x4CAF50, accentColor: 0xFFEB3B },
-  2: { label: 'Hutan',          bgColor: 0x2D5016, groundColor: 0x388E3C, accentColor: 0x8BC34A },
-  3: { label: 'Gua Kristal',    bgColor: 0x0D0D2B, groundColor: 0x6A1B9A, accentColor: 0xCE93D8 },
-  4: { label: 'Senja Gunung',   bgColor: 0xFF6B35, groundColor: 0x5D4037, accentColor: 0xFFD54F },
-  5: { label: 'Luar Angkasa',   bgColor: 0x000814, groundColor: 0x1A1A2E, accentColor: 0x00FFFF },
+// Theme visual per difficulty (flat design style)
+export const DIFFICULTY_THEME: Record<number, { label: string; bgColor: string; groundColor: number; accentColor: number }> = {
+  1: { label: 'Taman Cerah',    bgColor: '#5C94FC', groundColor: 0x5D4037, accentColor: 0xFFEB3B },
+  2: { label: 'Hutan',          bgColor: '#5C94FC', groundColor: 0x5D4037, accentColor: 0x8BC34A },
+  3: { label: 'Gua Kristal',    bgColor: '#5C94FC', groundColor: 0x5D4037, accentColor: 0xCE93D8 },
+  4: { label: 'Senja Gunung',   bgColor: '#5C94FC', groundColor: 0x5D4037, accentColor: 0xFFD54F },
+  5: { label: 'Luar Angkasa',   bgColor: '#5C94FC', groundColor: 0x5D4037, accentColor: 0x00FFFF },
 };

@@ -80,17 +80,14 @@ export class GameScene extends Phaser.Scene {
     // ── Background ─────────────────────────────────────────────────────────
     this.cameras.main.setBackgroundColor(theme.bgColor);
 
-    // Stars decoration (difficulty 5) - use scrollFactor 0.05 for parallax
-    if (this.difficulty >= 4) {
-      for (let i = 0; i < 80; i++) {
-        this.add.circle(
-          Phaser.Math.Between(0, this.WORLD_WIDTH),
-          Phaser.Math.Between(0, height * 0.7),
-          Phaser.Math.Between(1, 3),
-          0xFFFFFF,
-          Phaser.Math.FloatBetween(0.3, 1)
-        ).setScrollFactor(0.05);
-      }
+    // Blocky Clouds Parallax
+    for (let i = 0; i < 20; i++) {
+      const cx = Phaser.Math.Between(0, this.WORLD_WIDTH);
+      const cy = Phaser.Math.Between(0, height * 0.5);
+      const size = Phaser.Math.Between(50, 150);
+      this.add.rectangle(cx, cy, size, size * 0.6, 0xFFFFFF, 0.8)
+        .setScrollFactor(Phaser.Math.FloatBetween(0.1, 0.4))
+        .setDepth(0);
     }
 
     // ── Ground (tiling across world) ───────────────────────────────────────
@@ -171,35 +168,40 @@ export class GameScene extends Phaser.Scene {
   private createHUD(): void {
     const { width } = this.scale;
     const fs = Math.max(18, Math.floor(width * 0.03));
+    const fontFam = '"Impact", "Arial Black", sans-serif';
 
-    this.scoreTxt = this.add.text(16, 16, 'Skor: 0', {
+    this.scoreTxt = this.add.text(16, 16, 'SKOR: 0', {
+      fontFamily: fontFam,
       fontSize: `${fs}px`,
       color: '#FFD600',
-      fontStyle: 'bold',
       stroke: '#000000',
-      strokeThickness: 3,
+      strokeThickness: 4,
     }).setScrollFactor(0).setDepth(50);
 
-    this.comboTxt = this.add.text(16, 16 + fs + 8, 'Combo: x1', {
+    this.comboTxt = this.add.text(16, 16 + fs + 8, 'COMBO: x1', {
+      fontFamily: fontFam,
       fontSize: `${fs}px`,
       color: '#69F0AE',
       stroke: '#000000',
-      strokeThickness: 3,
+      strokeThickness: 4,
     }).setScrollFactor(0).setDepth(50);
 
     this.livesTxt = this.add.text(width - 16, 16, this.livesStr(), {
+      fontFamily: fontFam,
       fontSize: `${fs}px`,
       color: '#FF5252',
-      fontStyle: 'bold',
       stroke: '#000000',
-      strokeThickness: 3,
+      strokeThickness: 4,
     }).setScrollFactor(0).setDepth(50).setOrigin(1, 0);
 
     // kontrol hint
     this.add.text(width / 2, this.scale.height - 24,
-      '↑/W/SPACE = lompat  |  Tap layar atas = lompat', {
+      '↑/W/SPACE = LOMPAT  |  TAP ATAS = LOMPAT', {
+        fontFamily: fontFam,
         fontSize: `${Math.max(12, Math.floor(width * 0.02))}px`,
-        color: '#546E7A',
+        color: '#FFFFFF',
+        stroke: '#000000',
+        strokeThickness: 3,
       }).setScrollFactor(0).setDepth(50).setOrigin(0.5, 1);
   }
 
@@ -245,9 +247,9 @@ export class GameScene extends Phaser.Scene {
     const promptY = height * 0.18;
 
     const promptTxt = this.add.text(promptX, promptY, `❓ ${question.prompt}`, {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: `${Math.floor(width * 0.042)}px`,
       color: '#FFD600',
-      fontStyle: 'bold',
       stroke: '#000000',
       strokeThickness: 5,
       backgroundColor: '#00000099',
@@ -268,9 +270,9 @@ export class GameScene extends Phaser.Scene {
 
       const gateBg = this.add.image(gx, gy, 'gate_open').setDepth(8);
       const lbl = this.add.text(gx, gy - 15, String(val), {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: `${Math.floor(GATE_WIDTH * 0.42)}px`,
         color: '#FFFFFF',
-        fontStyle: 'bold',
         stroke: '#000',
         strokeThickness: 4,
       }).setOrigin(0.5).setDepth(9);
@@ -332,8 +334,9 @@ export class GameScene extends Phaser.Scene {
     const cam = this.cameras.main;
     const screenX = group.gateWorldX - cam.scrollX;
     const fxt = this.add.text(screenX, this.scale.height * 0.3, `+${gained} ✓`, {
-      fontSize: '36px', color: '#69F0AE', fontStyle: 'bold',
-      stroke: '#000', strokeThickness: 4,
+      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontSize: '36px', color: '#69F0AE',
+      stroke: '#000', strokeThickness: 5,
     }).setScrollFactor(0).setOrigin(0.5).setDepth(60);
     this.tweens.add({ targets: fxt, y: fxt.y - 70, alpha: 0, duration: 900, onComplete: () => fxt.destroy() });
 
@@ -368,6 +371,7 @@ export class GameScene extends Phaser.Scene {
     const screenX = group.gateWorldX - cam.scrollX;
     const answerTxt = `✅ Jawaban: ${group.question.gates[group.question.correctIndex]}`;
     const hint = this.add.text(screenX, this.scale.height * 0.25, answerTxt, {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: '26px',
       color: '#FFD600',
       backgroundColor: '#00000099',

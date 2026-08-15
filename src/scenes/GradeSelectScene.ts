@@ -13,16 +13,14 @@ export class GradeSelectScene extends Phaser.Scene {
     const save = SaveManager.load();
 
     // background
-    const bg = this.add.graphics();
-    bg.fillGradientStyle(0x0D1B2A, 0x0D1B2A, 0x1B2838, 0x1B2838, 1);
-    bg.fillRect(0, 0, width, height);
+    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
-    this.add.text(width / 2, height * 0.1, 'Pilih Kelas & Nama', {
+    this.add.text(width / 2, height * 0.1, 'PILIH KELAS & NAMA', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.055) + 'px',
-      color: '#FFD600',
-      fontStyle: 'bold',
-      stroke: '#000',
-      strokeThickness: 4,
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 6,
     }).setOrigin(0.5);
 
     // ── Grade cards ──────────────────────────────────────────────────
@@ -43,14 +41,19 @@ export class GradeSelectScene extends Phaser.Scene {
         .setData('grade', g);
 
       this.add.text(cx, cy - 10, `${g}`, {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(cardW * 0.45) + 'px',
         color: '#FFFFFF',
-        fontStyle: 'bold',
+        stroke: '#000000',
+        strokeThickness: 4,
       }).setOrigin(0.5).setData('grade', g);
 
-      this.add.text(cx, cy + cardH * 0.28, GRADE_CONFIG[g].label, {
+      this.add.text(cx, cy + cardH * 0.28, GRADE_CONFIG[g].label.toUpperCase(), {
+        fontFamily: '"Impact", "Arial Black", sans-serif',
         fontSize: Math.floor(cardW * 0.17) + 'px',
-        color: '#90CAF9',
+        color: '#FFD600',
+        stroke: '#000000',
+        strokeThickness: 3,
       }).setOrigin(0.5);
 
       card.on('pointerdown', () => {
@@ -66,9 +69,12 @@ export class GradeSelectScene extends Phaser.Scene {
     });
 
     // ── Username input (DOM) ────────────────────────────────────────
-    this.add.text(width / 2, height * 0.68, 'Nama pemain:', {
+    this.add.text(width / 2, height * 0.68, 'NAMA PEMAIN:', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.03) + 'px',
-      color: '#B0BEC5',
+      color: '#FFFFFF',
+      stroke: '#000000',
+      strokeThickness: 4,
     }).setOrigin(0.5);
 
     this.usernameInput = document.createElement('input');
@@ -85,10 +91,12 @@ export class GradeSelectScene extends Phaser.Scene {
       width:${Math.min(280, width * 0.5)}px;
       padding:10px 16px;
       border-radius:10px;
-      border:2px solid #42A5F5;
-      background:#1B2838;
-      color:#FFFFFF;
-      font-size:18px;
+      border:4px solid #000000;
+      background:#FFFFFF;
+      color:#000000;
+      font-family:"Impact", "Arial Black", sans-serif;
+      font-size:24px;
+      text-transform:uppercase;
       text-align:center;
       outline:none;
     `;
@@ -103,10 +111,10 @@ export class GradeSelectScene extends Phaser.Scene {
     const btnBg = this.add.rectangle(btnX, btnY, btnW, btnH, 0x2E7D32, 1)
       .setStrokeStyle(2, 0x66BB6A, 1)
       .setInteractive({ useHandCursor: true });
-    this.add.text(btnX, btnY, 'Lanjut ▶', {
+    this.add.text(btnX, btnY, 'LANJUT ▶', {
+      fontFamily: '"Impact", "Arial Black", sans-serif',
       fontSize: Math.floor(width * 0.03) + 'px',
       color: '#FFFFFF',
-      fontStyle: 'bold',
     }).setOrigin(0.5);
 
     btnBg.on('pointerdown', () => {
