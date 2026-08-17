@@ -13,7 +13,7 @@ export class GradeSelectScene extends Phaser.Scene {
     const save = SaveManager.load();
 
     // background
-    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
+    this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     this.add.text(width / 2, height * 0.1, 'PILIH KELAS & NAMA', {
       fontFamily: '"Impact", "Arial Black", sans-serif',

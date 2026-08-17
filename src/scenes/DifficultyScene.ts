@@ -8,7 +8,7 @@ export class DifficultyScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.scale;
 
-    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
+    this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     this.add.text(width / 2, height * 0.15, 'PILIH KESULITAN', {
       fontFamily: '"Impact", "Arial Black", sans-serif',
@@ -42,7 +42,7 @@ export class DifficultyScene extends Phaser.Scene {
 
       const theme = DIFFICULTY_THEME[d.id];
 
-      const card = this.add.rectangle(cx, cy, cardW, cardH, theme.bgColor, 1)
+      const card = this.add.rectangle(cx, cy, cardW, cardH, parseInt(theme.bgColor.replace('#', '0x'), 16), 1)
         .setStrokeStyle(3, theme.accentColor, 1)
         .setInteractive({ useHandCursor: true });
 

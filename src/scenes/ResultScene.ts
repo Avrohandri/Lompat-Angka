@@ -27,7 +27,7 @@ export class ResultScene extends Phaser.Scene {
     const diff     = this.data.get('difficulty') as number;
 
     // BG
-    const bg = this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
+    this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     // Title
     this.add.text(width / 2, height * 0.1, 'HASIL', {
