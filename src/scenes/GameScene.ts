@@ -173,7 +173,7 @@ export class GameScene extends Phaser.Scene {
     this.scoreTxt = this.add.text(16, 16, 'SKOR: 0', {
       fontFamily: fontFam,
       fontSize: `${fs}px`,
-      color: '#FFD600',
+      color: GAME_CONSTANTS.COLOR_GOLD,
       stroke: '#000000',
       strokeThickness: 4,
     }).setScrollFactor(0).setDepth(50);
@@ -199,7 +199,7 @@ export class GameScene extends Phaser.Scene {
       '↑/W/SPACE = LOMPAT  |  TAP ATAS = LOMPAT', {
         fontFamily: fontFam,
         fontSize: `${Math.max(12, Math.floor(width * 0.02))}px`,
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 3,
       }).setScrollFactor(0).setDepth(50).setOrigin(0.5, 1);
@@ -249,7 +249,7 @@ export class GameScene extends Phaser.Scene {
     const promptTxt = this.add.text(promptX, promptY, `❓ ${question.prompt}`, {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: `${Math.floor(width * 0.042)}px`,
-      color: '#FFD600',
+      color: GAME_CONSTANTS.COLOR_GOLD,
       stroke: '#000000',
       strokeThickness: 5,
       backgroundColor: '#00000099',
@@ -272,7 +272,7 @@ export class GameScene extends Phaser.Scene {
       const lbl = this.add.text(gx, gy - 15, String(val), {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: `${Math.floor(GATE_WIDTH * 0.42)}px`,
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000',
         strokeThickness: 4,
       }).setOrigin(0.5).setDepth(9);
@@ -373,7 +373,7 @@ export class GameScene extends Phaser.Scene {
     const hint = this.add.text(screenX, this.scale.height * 0.25, answerTxt, {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: '26px',
-      color: '#FFD600',
+      color: GAME_CONSTANTS.COLOR_GOLD,
       backgroundColor: '#00000099',
       padding: { x: 10, y: 5 },
     }).setScrollFactor(0).setOrigin(0.5).setDepth(60);

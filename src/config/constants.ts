@@ -3,4 +3,6 @@ export const GAME_CONSTANTS = {
   HEIGHT: 720,
   BG_COLOR: '#0D1B2A',
   FONT_FAMILY: '"Impact", "Arial Black", sans-serif',
+  COLOR_WHITE: '#FFFFFF',
+  COLOR_GOLD: '#FFD600',
 };

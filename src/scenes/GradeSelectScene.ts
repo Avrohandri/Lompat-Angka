@@ -18,7 +18,7 @@ export class GradeSelectScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.1, 'PILIH KELAS & NAMA', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.055) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 6,
     }).setOrigin(0.5);
@@ -43,7 +43,7 @@ export class GradeSelectScene extends Phaser.Scene {
       this.add.text(cx, cy - 10, `${g}`, {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.45) + 'px',
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 4,
       }).setOrigin(0.5).setData('grade', g);
@@ -51,7 +51,7 @@ export class GradeSelectScene extends Phaser.Scene {
       this.add.text(cx, cy + cardH * 0.28, GRADE_CONFIG[g].label.toUpperCase(), {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.17) + 'px',
-        color: '#FFD600',
+        color: GAME_CONSTANTS.COLOR_GOLD,
         stroke: '#000000',
         strokeThickness: 3,
       }).setOrigin(0.5);
@@ -72,7 +72,7 @@ export class GradeSelectScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.68, 'NAMA PEMAIN:', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 4,
     }).setOrigin(0.5);
@@ -114,7 +114,7 @@ export class GradeSelectScene extends Phaser.Scene {
     this.add.text(btnX, btnY, 'LANJUT ▶', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
     }).setOrigin(0.5);
 
     btnBg.on('pointerdown', () => {

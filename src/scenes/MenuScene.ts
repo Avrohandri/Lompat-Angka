@@ -33,7 +33,7 @@ export class MenuScene extends Phaser.Scene {
 
       const text = this.add.text(x, y, sym, {
         fontSize: `${size}px`,
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         fontStyle: 'bold',
       }).setOrigin(0.5).setAlpha(alpha).setDepth(0);
 
@@ -55,7 +55,7 @@ export class MenuScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.2, 'LOMPAT ANGKA', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.08) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 8,
       shadow: { blur: 0, color: '#000000', offsetX: 4, offsetY: 4, fill: true },
@@ -64,7 +64,7 @@ export class MenuScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.3, 'LARI • HITUNG • MENANG', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.035) + 'px',
-      color: '#FFD600',
+      color: GAME_CONSTANTS.COLOR_GOLD,
       stroke: '#000000',
       strokeThickness: 4,
     }).setOrigin(0.5);
@@ -85,7 +85,7 @@ export class MenuScene extends Phaser.Scene {
       this.add.text(width / 2, height * 0.42, `👤 ${save.username.toUpperCase()} • ${gradeLabel.toUpperCase()}`, {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.028) + 'px',
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 4,
       }).setOrigin(0.5);
@@ -124,7 +124,7 @@ export class MenuScene extends Phaser.Scene {
     const txt = this.add.text(x, y, label.toUpperCase(), {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
     }).setOrigin(0.5);
 
     bg.on('pointerover', () => bg.setFillStyle(colorHover));

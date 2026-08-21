@@ -33,7 +33,7 @@ export class ResultScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.1, 'HASIL', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.07) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 8,
     }).setOrigin(0.5);
@@ -48,7 +48,7 @@ export class ResultScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.34, `SKOR: ${score}`, {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.06) + 'px',
-      color: '#FFD600',
+      color: GAME_CONSTANTS.COLOR_GOLD,
       stroke: '#000000',
       strokeThickness: 6,
     }).setOrigin(0.5);
@@ -66,7 +66,7 @@ export class ResultScene extends Phaser.Scene {
       this.add.text(width / 2, height * 0.46 + i * (height * 0.07), s, {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.032) + 'px',
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 4,
       }).setOrigin(0.5);
@@ -78,7 +78,7 @@ export class ResultScene extends Phaser.Scene {
       this.add.text(width / 2, height * 0.74, `SKOR TERTINGGI: ${save.highScore}`, {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.028) + 'px',
-        color: '#FFD600',
+        color: GAME_CONSTANTS.COLOR_GOLD,
         stroke: '#000000',
         strokeThickness: 4,
       }).setOrigin(0.5);
@@ -125,7 +125,7 @@ export class ResultScene extends Phaser.Scene {
     const txt = this.add.text(x, y, label, {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
     }).setOrigin(0.5);
 
     bg.on('pointerover', () => bg.setAlpha(0.8));

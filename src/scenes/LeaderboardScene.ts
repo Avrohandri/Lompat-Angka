@@ -50,7 +50,7 @@ export class LeaderboardScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.08, 'LEADERBOARD', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.055) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 6,
     }).setOrigin(0.5);
@@ -67,7 +67,7 @@ export class LeaderboardScene extends Phaser.Scene {
       this.add.text(tabX, tabY, `KLS ${g}`, {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.022) + 'px',
-        color: isSelected ? '#FFD600' : '#FFFFFF',
+        color: isSelected ? GAME_CONSTANTS.COLOR_GOLD : GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 3,
       }).setOrigin(0.5);
@@ -84,7 +84,7 @@ export class LeaderboardScene extends Phaser.Scene {
       this.add.text(width / 2, height * 0.55, 'BELUM ADA SKOR.\nMAIN DULU!', {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.03) + 'px',
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         align: 'center',
         stroke: '#000000',
         strokeThickness: 4,
@@ -96,7 +96,7 @@ export class LeaderboardScene extends Phaser.Scene {
         this.add.text(colX[i], height * 0.27, h.toUpperCase(), {
           fontFamily: GAME_CONSTANTS.FONT_FAMILY,
           fontSize: Math.floor(width * 0.026) + 'px',
-          color: '#FFD600',
+          color: GAME_CONSTANTS.COLOR_GOLD,
           stroke: '#000000',
           strokeThickness: 3,
         }).setOrigin(0.5);
@@ -113,7 +113,7 @@ export class LeaderboardScene extends Phaser.Scene {
           this.add.text(colX[i], rowY, v.toUpperCase(), {
             fontFamily: GAME_CONSTANTS.FONT_FAMILY,
             fontSize: Math.floor(width * 0.025) + 'px',
-            color: idx < 3 ? '#FFD600' : '#FFFFFF',
+            color: idx < 3 ? GAME_CONSTANTS.COLOR_GOLD : GAME_CONSTANTS.COLOR_WHITE,
             stroke: '#000000',
             strokeThickness: 3,
           }).setOrigin(0.5);
@@ -125,7 +125,7 @@ export class LeaderboardScene extends Phaser.Scene {
     const backTxt = this.add.text(width / 2, height * 0.92, '⬅ KEMBALI KE MENU', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 4,
     }).setOrigin(0.5).setInteractive({ useHandCursor: true });

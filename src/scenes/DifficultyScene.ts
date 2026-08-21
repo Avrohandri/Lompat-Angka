@@ -13,7 +13,7 @@ export class DifficultyScene extends Phaser.Scene {
     this.add.text(width / 2, height * 0.15, 'PILIH KESULITAN', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.05) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 6,
     }).setOrigin(0.5);
@@ -53,7 +53,7 @@ export class DifficultyScene extends Phaser.Scene {
       this.add.text(cx, cy, d.title.toUpperCase(), {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.14) + 'px',
-        color: '#FFFFFF',
+        color: GAME_CONSTANTS.COLOR_WHITE,
         stroke: '#000000',
         strokeThickness: 4,
       }).setOrigin(0.5);
@@ -61,7 +61,7 @@ export class DifficultyScene extends Phaser.Scene {
       this.add.text(cx, cy + cardH * 0.3, theme.label.toUpperCase(), {
         fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.1) + 'px',
-        color: '#FFD600',
+        color: GAME_CONSTANTS.COLOR_GOLD,
         stroke: '#000000',
         strokeThickness: 3,
       }).setOrigin(0.5);
@@ -86,7 +86,7 @@ export class DifficultyScene extends Phaser.Scene {
     const backTxt = this.add.text(width / 2, height * 0.9, '⬅ KEMBALI KE MENU', {
       fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
-      color: '#FFFFFF',
+      color: GAME_CONSTANTS.COLOR_WHITE,
       stroke: '#000000',
       strokeThickness: 4,
     }).setOrigin(0.5).setInteractive({ useHandCursor: true });
