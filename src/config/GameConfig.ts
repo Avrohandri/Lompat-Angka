@@ -6,12 +6,13 @@ import { DifficultyScene } from '../scenes/DifficultyScene';
 import { GameScene } from '../scenes/GameScene';
 import { ResultScene } from '../scenes/ResultScene';
 import { LeaderboardScene } from '../scenes/LeaderboardScene';
+import { GAME_CONSTANTS } from './constants';
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  width: 1280,
-  height: 720,
-  backgroundColor: '#0D1B2A',
+  width: GAME_CONSTANTS.WIDTH,
+  height: GAME_CONSTANTS.HEIGHT,
+  backgroundColor: GAME_CONSTANTS.BG_COLOR,
   physics: {
     default: 'arcade',
     arcade: {
