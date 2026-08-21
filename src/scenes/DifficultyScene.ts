@@ -11,7 +11,7 @@ export class DifficultyScene extends Phaser.Scene {
     this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     this.add.text(width / 2, height * 0.15, 'PILIH KESULITAN', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.05) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -51,7 +51,7 @@ export class DifficultyScene extends Phaser.Scene {
       }).setOrigin(0.5);
 
       this.add.text(cx, cy, d.title.toUpperCase(), {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.14) + 'px',
         color: '#FFFFFF',
         stroke: '#000000',
@@ -59,7 +59,7 @@ export class DifficultyScene extends Phaser.Scene {
       }).setOrigin(0.5);
 
       this.add.text(cx, cy + cardH * 0.3, theme.label.toUpperCase(), {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.1) + 'px',
         color: '#FFD600',
         stroke: '#000000',
@@ -84,7 +84,7 @@ export class DifficultyScene extends Phaser.Scene {
 
     // Tombol kembali
     const backTxt = this.add.text(width / 2, height * 0.9, '⬅ KEMBALI KE MENU', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',

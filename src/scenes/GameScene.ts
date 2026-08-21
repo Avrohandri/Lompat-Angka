@@ -247,7 +247,7 @@ export class GameScene extends Phaser.Scene {
     const promptY = height * 0.18;
 
     const promptTxt = this.add.text(promptX, promptY, `❓ ${question.prompt}`, {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: `${Math.floor(width * 0.042)}px`,
       color: '#FFD600',
       stroke: '#000000',
@@ -270,7 +270,7 @@ export class GameScene extends Phaser.Scene {
 
       const gateBg = this.add.image(gx, gy, 'gate_open').setDepth(8);
       const lbl = this.add.text(gx, gy - 15, String(val), {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: `${Math.floor(GATE_WIDTH * 0.42)}px`,
         color: '#FFFFFF',
         stroke: '#000',
@@ -334,7 +334,7 @@ export class GameScene extends Phaser.Scene {
     const cam = this.cameras.main;
     const screenX = group.gateWorldX - cam.scrollX;
     const fxt = this.add.text(screenX, this.scale.height * 0.3, `+${gained} ✓`, {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: '36px', color: '#69F0AE',
       stroke: '#000', strokeThickness: 5,
     }).setScrollFactor(0).setOrigin(0.5).setDepth(60);
@@ -371,7 +371,7 @@ export class GameScene extends Phaser.Scene {
     const screenX = group.gateWorldX - cam.scrollX;
     const answerTxt = `✅ Jawaban: ${group.question.gates[group.question.correctIndex]}`;
     const hint = this.add.text(screenX, this.scale.height * 0.25, answerTxt, {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: '26px',
       color: '#FFD600',
       backgroundColor: '#00000099',

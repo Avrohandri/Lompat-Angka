@@ -53,7 +53,7 @@ export class MenuScene extends Phaser.Scene {
 
     // ── Title ───────────────────────────────────────────────────────
     this.add.text(width / 2, height * 0.2, 'LOMPAT ANGKA', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.08) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -62,7 +62,7 @@ export class MenuScene extends Phaser.Scene {
     }).setOrigin(0.5);
 
     this.add.text(width / 2, height * 0.3, 'LARI • HITUNG • MENANG', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.035) + 'px',
       color: '#FFD600',
       stroke: '#000000',
@@ -83,7 +83,7 @@ export class MenuScene extends Phaser.Scene {
     if (save) {
       const gradeLabel = GRADE_CONFIG[save.grade]?.label ?? `Kelas ${save.grade}`;
       this.add.text(width / 2, height * 0.42, `👤 ${save.username.toUpperCase()} • ${gradeLabel.toUpperCase()}`, {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.028) + 'px',
         color: '#FFFFFF',
         stroke: '#000000',
@@ -122,7 +122,7 @@ export class MenuScene extends Phaser.Scene {
       .setInteractive({ useHandCursor: true });
 
     const txt = this.add.text(x, y, label.toUpperCase(), {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
       color: '#FFFFFF',
     }).setOrigin(0.5);

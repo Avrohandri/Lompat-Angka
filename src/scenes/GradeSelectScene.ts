@@ -16,7 +16,7 @@ export class GradeSelectScene extends Phaser.Scene {
     this.add.rectangle(0, 0, width, height, 0x5C94FC).setOrigin(0);
 
     this.add.text(width / 2, height * 0.1, 'PILIH KELAS & NAMA', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.055) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -41,7 +41,7 @@ export class GradeSelectScene extends Phaser.Scene {
         .setData('grade', g);
 
       this.add.text(cx, cy - 10, `${g}`, {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.45) + 'px',
         color: '#FFFFFF',
         stroke: '#000000',
@@ -49,7 +49,7 @@ export class GradeSelectScene extends Phaser.Scene {
       }).setOrigin(0.5).setData('grade', g);
 
       this.add.text(cx, cy + cardH * 0.28, GRADE_CONFIG[g].label.toUpperCase(), {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(cardW * 0.17) + 'px',
         color: '#FFD600',
         stroke: '#000000',
@@ -70,7 +70,7 @@ export class GradeSelectScene extends Phaser.Scene {
 
     // ── Username input (DOM) ────────────────────────────────────────
     this.add.text(width / 2, height * 0.68, 'NAMA PEMAIN:', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -112,7 +112,7 @@ export class GradeSelectScene extends Phaser.Scene {
       .setStrokeStyle(2, 0x66BB6A, 1)
       .setInteractive({ useHandCursor: true });
     this.add.text(btnX, btnY, 'LANJUT ▶', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.03) + 'px',
       color: '#FFFFFF',
     }).setOrigin(0.5);

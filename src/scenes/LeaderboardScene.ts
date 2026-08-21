@@ -48,7 +48,7 @@ export class LeaderboardScene extends Phaser.Scene {
 
     // Title
     this.add.text(width / 2, height * 0.08, 'LEADERBOARD', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.055) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -65,7 +65,7 @@ export class LeaderboardScene extends Phaser.Scene {
         .setStrokeStyle(2, isSelected ? 0x42A5F5 : 0x546E7A, 1)
         .setInteractive({ useHandCursor: true });
       this.add.text(tabX, tabY, `KLS ${g}`, {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.022) + 'px',
         color: isSelected ? '#FFD600' : '#FFFFFF',
         stroke: '#000000',
@@ -82,7 +82,7 @@ export class LeaderboardScene extends Phaser.Scene {
     const entries = this.getEntries().filter(e => e.grade === this.selectedGrade);
     if (entries.length === 0) {
       this.add.text(width / 2, height * 0.55, 'BELUM ADA SKOR.\nMAIN DULU!', {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.03) + 'px',
         color: '#FFFFFF',
         align: 'center',
@@ -94,7 +94,7 @@ export class LeaderboardScene extends Phaser.Scene {
       const colX = [0.08, 0.25, 0.5, 0.68, 0.88].map(f => f * width);
       colHeaders.forEach((h, i) => {
         this.add.text(colX[i], height * 0.27, h.toUpperCase(), {
-          fontFamily: '"Impact", "Arial Black", sans-serif',
+          fontFamily: GAME_CONSTANTS.FONT_FAMILY,
           fontSize: Math.floor(width * 0.026) + 'px',
           color: '#FFD600',
           stroke: '#000000',
@@ -111,7 +111,7 @@ export class LeaderboardScene extends Phaser.Scene {
         const vals = [medal, e.username.slice(0, 10), String(e.difficulty), String(e.score), '⭐'.repeat(e.stars)];
         vals.forEach((v, i) => {
           this.add.text(colX[i], rowY, v.toUpperCase(), {
-            fontFamily: '"Impact", "Arial Black", sans-serif',
+            fontFamily: GAME_CONSTANTS.FONT_FAMILY,
             fontSize: Math.floor(width * 0.025) + 'px',
             color: idx < 3 ? '#FFD600' : '#FFFFFF',
             stroke: '#000000',
@@ -123,7 +123,7 @@ export class LeaderboardScene extends Phaser.Scene {
 
     // Back
     const backTxt = this.add.text(width / 2, height * 0.92, '⬅ KEMBALI KE MENU', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',

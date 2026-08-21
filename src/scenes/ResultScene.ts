@@ -31,7 +31,7 @@ export class ResultScene extends Phaser.Scene {
 
     // Title
     this.add.text(width / 2, height * 0.1, 'HASIL', {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.07) + 'px',
       color: '#FFFFFF',
       stroke: '#000000',
@@ -46,7 +46,7 @@ export class ResultScene extends Phaser.Scene {
 
     // Score
     this.add.text(width / 2, height * 0.34, `SKOR: ${score}`, {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.06) + 'px',
       color: '#FFD600',
       stroke: '#000000',
@@ -64,7 +64,7 @@ export class ResultScene extends Phaser.Scene {
     ];
     stats.forEach((s, i) => {
       this.add.text(width / 2, height * 0.46 + i * (height * 0.07), s, {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.032) + 'px',
         color: '#FFFFFF',
         stroke: '#000000',
@@ -76,7 +76,7 @@ export class ResultScene extends Phaser.Scene {
     const save = SaveManager.load();
     if (save) {
       this.add.text(width / 2, height * 0.74, `SKOR TERTINGGI: ${save.highScore}`, {
-        fontFamily: '"Impact", "Arial Black", sans-serif',
+        fontFamily: GAME_CONSTANTS.FONT_FAMILY,
         fontSize: Math.floor(width * 0.028) + 'px',
         color: '#FFD600',
         stroke: '#000000',
@@ -123,7 +123,7 @@ export class ResultScene extends Phaser.Scene {
       .setStrokeStyle(2, 0xFFFFFF, 0.4)
       .setInteractive({ useHandCursor: true });
     const txt = this.add.text(x, y, label, {
-      fontFamily: '"Impact", "Arial Black", sans-serif',
+      fontFamily: GAME_CONSTANTS.FONT_FAMILY,
       fontSize: Math.floor(width * 0.025) + 'px',
       color: '#FFFFFF',
     }).setOrigin(0.5);
